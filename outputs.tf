@@ -19,3 +19,7 @@ output "rds_username" {
   sensitive   = false
 }
 
+output "rds_replica_connection_parameters" {
+  description = "RDS replica instance connection parameters"
+  value       = "-h ${aws_db_instance.education_replica.address} -p ${aws_db_instance.education_replica.port} -U ${aws_db_instance.education_replica.username} postgres"
+}
